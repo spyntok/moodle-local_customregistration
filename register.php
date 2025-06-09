@@ -23,8 +23,8 @@ class custom_registration_form extends moodleform {
         $mform->addElement('select', 'country', get_string('country'), get_string_manager()->get_list_of_countries());
         $mform->addRule('country', null, 'required', null, 'client');
 
-        $mform->addElement('text', 'phone', get_string('phone', 'local_customregistration'));
-        $mform->setType('phone', PARAM_TEXT);
+        $mform->addElement('text', 'mobile', get_string('mobile', 'local_customregistration'));
+        $mform->setType('mobile', PARAM_TEXT);
 
         $mform->addElement('submit', 'submitbutton', get_string('register', 'local_customregistration'));
     }
@@ -53,7 +53,7 @@ if ($mform->is_cancelled()) {
     $user->firstname = $data->firstname;
     $user->lastname = $data->lastname;
     $user->country = $data->country;
-    $user->phone1 = $data->phone;
+    $user->mobile1 = $data->mobile;
     $user->auth = 'manual';
     $user->confirmed = 1;
     $user->policyagreed = 1;
