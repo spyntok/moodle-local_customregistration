@@ -66,14 +66,14 @@ if ($mform->is_cancelled()) {
         print_error('Failed to create user');
     }
 
-    // ✅ Hash and store the password
+    // Hash and store the password
     $hashedpassword = hash_internal_user_password($temp_password);
     $DB->set_field('user', 'password', $hashedpassword, ['id' => $user->id]);
 
-    // ✅ Force password change
-    set_user_preference('auth_forcepasswordchange', 1, $user->id); // ✅ Correct
+    // Force password change
+    set_user_preference('auth_forcepasswordchange', 1, $user->id); 
 
-    // ✅ Send the email
+    // Send the email
     $user = $DB->get_record('user', ['id' => $user->id], '*', MUST_EXIST);
     $supportuser = core_user::get_support_user();
 
